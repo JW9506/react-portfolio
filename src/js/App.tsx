@@ -5,20 +5,33 @@ import "~/css/main.scss"
 import CountDownTimer from "./projects/CountDownTimer"
 import ImageEffects from "./projects/ImageEffects"
 
+const navLinks = [
+  {
+    path: "/",
+    name: "Home",
+  },
+  {
+    path: "/countdowntimer",
+    name: "Count Down Timer",
+  },
+  {
+    path: "/imageeffects",
+    name: "Image Effects",
+  },
+]
+
 function App() {
   return (
     <Router>
       <div className="flex min-h-screen">
         <div className="w-1/4 border-r border-yellow-300">
-          <Link to="/" className="block">
-            Home
-          </Link>
-          <Link to="/countdowntimer" className="block">
-            countdowntimer
-          </Link>
-          <Link to="/imageeffects" className="block">
-            imageeffects
-          </Link>
+          {navLinks.map(({ path, name }) => {
+            return (
+              <Link key={path} to={path} className="block">
+                {name}
+              </Link>
+            )
+          })}
         </div>
         <div className="w-3/4 flex justify-center items-center">
           <Switch>
