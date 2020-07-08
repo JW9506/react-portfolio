@@ -13,13 +13,7 @@ module.exports = (_, { mode = "production" }) => {
   const commonCSSLoaders = [
     isProduction ? MiniCssExtractPlugin.loader : "style-loader",
     "css-loader",
-    {
-      loader: "postcss-loader",
-      options: {
-        ident: "postcss",
-        plugins: [require("postcss-preset-env")],
-      },
-    },
+    "postcss-loader",
   ]
   const config = {
     mode,
